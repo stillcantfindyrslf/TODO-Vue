@@ -1,0 +1,18 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin typography($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin box-shadow($shadow-color, $shadow-size) {
+  box-shadow: 0 0 $shadow-size $shadow-color;
+}
+
+@mixin transition($property, $duration: 0.2, $ease: ease) {
+  transition: $property $duration $ease;
+}
