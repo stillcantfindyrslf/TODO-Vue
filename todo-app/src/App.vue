@@ -3,7 +3,7 @@
 <template>
   <div class="wrapper">
     <div class="bg-image">
-      <img src="../public/img/task-list.png" alt="" />
+      <img src="@/assets/img/task-list.png" alt="" />
     </div>
     <div class="todo__container">
       <section class="todo-app">
