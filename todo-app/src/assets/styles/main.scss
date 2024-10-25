@@ -43,21 +43,10 @@ body {
         padding: 0;
       }
 
-      .todo-header {
-        background: $primary-color-elem;
-        padding: 0.85rem;
-
-        h1 {
-          text-align: center;
-          @include typography($font-size-primary, $font-weight-primary);
-          margin: 0;
-        }
-      }
-
       .todo-list {
         background: #FFF4E9;
 
-        .task-list {
+        .todo-tasks {
           margin: 0;
           padding: 1.9rem;
           list-style: none;
@@ -70,76 +59,6 @@ body {
           }
         }
         
-        .todo-task {
-          background: $list-item-color;
-          padding: 0.75rem;
-          border-radius: 0.6rem;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-
-          @include transition(all);
-
-          .task-check-box {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-
-            &::before {
-              content: "";
-              width: 1.5rem;
-              height: 1.5rem;
-              border-radius: 0.31rem;
-              display: block;
-              position: absolute;
-              border: 0.125rem solid #fcb467;
-              background: $list-item-color;
-
-              @include transition(background-color, 0.2s);
-            }
-
-            &:checked::before {
-              background: #fcb467;
-              border-color: #fcb467;
-            }
-
-            &:checked::after {
-              content: "✔";
-              position: absolute;
-              padding-left: 0.4rem;
-              font-size: 1rem;
-              color: white;
-            }
-          }
-
-          .task-label {
-            @include typography($font-size-primary, 400);
-            flex-grow: 1;
-            margin-left: 2rem;
-
-            @include respond-to(sm) {
-              margin-left: 1rem;
-            }
-          }
-
-          .task-delete {
-            background-color: transparent;
-            border-radius: 0.3rem;
-            border: 0.125rem solid $primary-color-elem;
-            cursor: pointer;
-            font-size: 1rem;
-            color: $primary-color-elem;
-            padding: 0.1rem 0.4rem;
-
-            @include transition(background-color, 0.2s, ease-in-out);
-
-            &:hover {
-              background-color: $primary-color-elem;
-              color: white;
-            }
-          }
-        }
-        
         .todo-task-add {
           background: #FFECD8;
           padding: 0.75rem;
@@ -149,70 +68,22 @@ body {
 
           @include transition(background-color, 0.2s);
 
-          &:hover {
-            background: $primary-color-elem;
-            h2 {
-              color: white;
-            }
+          @include respond-to(sm) {
+            margin-left: 1rem;
           }
 
           h2 {
             color: $primary-color-elem;
-            @include typography($font-size-primary, 400);
+            @include typography($font-size-primary, 400, $primary-color-elem);
             margin: 0;
             text-align: center;
           }
-        }
-      }
-      
-      .todo-footer {
-        background: $primary-color-elem;
-        padding: 0.6rem 2rem;
 
-        @include respond-to(sm) {
-          padding: 0.6rem 1rem;
-        }
+          &:hover {
+            background: $primary-color-elem;
 
-        .footer-items {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-
-          h1 {
-            color: #c8945d;
-            padding: 0 0.6rem;
-            @include typography($font-size-primary, $font-weight-primary);
-            margin: 0;
-          }
-          
-          .filter-holder {
-            display: flex;
-            gap: 2.3rem;
-
-            .filter {
-              background: $primary-color-elem;
-              border: none;
-              font-family: inherit;
-              padding: 0 0.6rem;
-              @include typography($font-size-primary, $font-weight-primary);
-              color: #c8945d;
-              cursor: pointer;
-              border-radius: 0.31rem;
-
-              @include transition(background-color, 0.2s);
-
-              &:hover {
-                background-color: darken($primary-color-elem, 5%);
-              }
-            }
-            
-            .filter.active {
-              background: $primary-color-elem;
-              border: 0.125rem solid #c8945d;
-              border-radius: 0.7rem;
-              padding: 0.18rem 0.625rem;
-
-              @include transition(background-color, 0.2s);
+            h2 {
+              color: white;
             }
           }
         }

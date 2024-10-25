@@ -1,4 +1,25 @@
-<script setup></script>
+<script>
+import Header from "@/components/layout/Header.vue";
+import TaskItem from "@/components/tasks/TaskItem.vue";
+import Footer from "@/components/layout/Footer.vue";
+
+export default {
+  components: {
+    Header,
+    TaskItem,
+    Footer,
+  },
+  data() {
+    return {
+      tasks: [
+        { id: 1, name: "Task 1", completed: false },
+        { id: 2, name: "Task 2", completed: false },
+        { id: 3, name: "Task 3", completed: false },
+      ],
+    };
+  },
+};
+</script>
 
 <template>
   <div class="wrapper">
@@ -6,45 +27,19 @@
       <img src="@/assets/img/task-list.png" alt="" />
     </div>
     <div class="todo__container">
-      <section class="todo-app">
-        <div class="todo-header">
-          <h1>to do list</h1>
-        </div>
+      <div class="todo-app">
+        <Header />
         <div class="todo-list">
-          <ul class="task-list">
-            <li class="todo-task">
-              <input type="checkbox" id="task1" class="task-check-box" />
-              <label class="task-label" for="task1">Task 1</label>
-              <button class="task-delete">✖</button>
-            </li>
-            <li class="todo-task">
-              <input type="checkbox" id="task2" class="task-check-box" />
-              <label class="task-label" for="task2">Task 2</label>
-              <button class="task-delete">✖</button>
-            </li>
-            <li class="todo-task">
-              <input type="checkbox" id="task3" class="task-check-box" />
-              <label class="task-label" for="task3">Task 3</label>
-              <button class="task-delete">✖</button>
-            </li>
+          <ul class="todo-tasks">
+            <TaskItem v-for="task in tasks" :key="task.id" :task="task" />
+
             <li class="todo-task-add">
               <h2>Add a new task</h2>
             </li>
           </ul>
         </div>
-        <div class="todo-footer">
-          <div class="footer-items">
-            <div class="pages">
-              <h1>1/3 left</h1>
-            </div>
-            <div class="filter-holder">
-              <button class="filter active">All</button>
-              <button class="filter">Active</button>
-              <button class="filter">Completed</button>
-            </div>
-          </div>
-        </div>
-      </section>
+        <Footer />
+      </div>
     </div>
   </div>
 </template>

@@ -4,9 +4,10 @@
   align-items: center;
 }
 
-@mixin typography($size, $weight) {
+@mixin typography($size, $weight, $color: $text-color) {
   font-size: $size;
   font-weight: $weight;
+  color: $color;
 }
 
 @mixin box-shadow($shadow-color, $shadow-size) {
