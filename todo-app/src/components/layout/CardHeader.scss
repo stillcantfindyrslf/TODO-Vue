@@ -1,26 +1,8 @@
-<script>
-export default {
-  props: {
-    title: {
-      type: String,
-      default: "to do list",
-    },
-  },
-};
-</script>
-
-<template>
-  <div :class="$style.todoHeader">
-    <h1>{{ title }}</h1>
-  </div>
-</template>
-
-<style module lang="scss">
 @import "@/assets/styles/_mixins.scss";
 @import "@/assets/styles/_variables.scss";
 @import "@/assets/styles/_breakpoints.scss";
 
-.todoHeader {
+.cardHeader {
   background: $primary-color-elem;
   padding: 0.85rem;
 
@@ -34,4 +16,3 @@ export default {
     margin: 0;
   }
 }
-</style>

@@ -1,0 +1,79 @@
+@import "@/assets/styles/_mixins.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_breakpoints.scss";
+
+.todoTask {
+  background: $list-item-color;
+  padding: 0.75rem;
+  border-radius: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include transition(all);
+}
+
+.taskCheckBox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.31rem;
+    display: block;
+    position: absolute;
+    border: 0.125rem solid #fcb467;
+    background: $list-item-color;
+
+    @include transition(background-color, 0.2s);
+  }
+
+  &:checked::before {
+    background: #fcb467;
+    border-color: #fcb467;
+  }
+
+  &:checked::after {
+    content: "✔";
+    position: absolute;
+    padding-left: 0.4rem;
+    font-size: 1rem;
+    color: white;
+  }
+}
+
+.taskInput {
+  border: none;
+  background-color: transparent;
+  flex-grow: 1;
+  margin-left: 2rem;
+  @include typography($font-size-primary, 400);
+
+  &:focus {
+    outline: none;
+  }
+
+  @include respond-to(sm) {
+    margin-left: 1rem;
+  }
+}
+
+.taskDelete {
+  background-color: transparent;
+  border-radius: 0.3rem;
+  border: 0.125rem solid $primary-color-elem;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.1rem 0.4rem;
+  color: $primary-color-elem;
+
+  @include transition(background-color, 0.2s, ease-in-out);
+
+  &:hover {
+    background-color: $primary-color-elem;
+    color: white;
+  }
+}

@@ -1,20 +1,20 @@
 <script>
-import Header from "@/components/layout/Header.vue";
+import CardHeader from "@/components/layout/CardHeader.vue";
 import TaskItem from "@/components/tasks/TaskItem.vue";
-import Footer from "@/components/layout/Footer.vue";
+import CardFooter from "@/components/layout/CardFooter.vue";
 
 export default {
   components: {
-    Header,
+    CardHeader,
     TaskItem,
-    Footer,
+    CardFooter,
   },
   data() {
     return {
       tasks: [
-        { id: 1, name: "Task 1", completed: false },
-        { id: 2, name: "Task 2", completed: false },
-        { id: 3, name: "Task 3", completed: false },
+        { id: 1, completed: false },
+        { id: 2, completed: false },
+        { id: 3, completed: false },
       ],
     };
   },
@@ -28,7 +28,7 @@ export default {
     </div>
     <div class="todo__container">
       <div class="todo-app">
-        <Header />
+        <CardHeader />
         <div class="todo-list">
           <ul class="todo-tasks">
             <TaskItem v-for="task in tasks" :key="task.id" :task="task" />
@@ -38,7 +38,7 @@ export default {
             </li>
           </ul>
         </div>
-        <Footer />
+        <CardFooter />
       </div>
     </div>
   </div>
