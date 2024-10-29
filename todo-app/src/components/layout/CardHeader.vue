@@ -1,17 +1,10 @@
 <script>
-export default {
-  props: {
-    title: {
-      type: String,
-      default: "to do list",
-    },
-  },
-};
+export default {};
 </script>
 
 <template>
   <div :class="$style.cardHeader">
-    <h1>{{ title }}</h1>
+    <h1>to do list</h1>
   </div>
 </template>
 

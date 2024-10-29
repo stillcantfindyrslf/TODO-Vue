@@ -1,4 +1,5 @@
 <script>
+import { mapActions, mapGetters } from "vuex";
 import CardHeader from "@/components/layout/CardHeader.vue";
 import TaskItem from "@/components/tasks/TaskItem.vue";
 import CardFooter from "@/components/layout/CardFooter.vue";
@@ -9,14 +10,15 @@ export default {
     TaskItem,
     CardFooter,
   },
-  data() {
-    return {
-      tasks: [
-        { id: 1, completed: false },
-        { id: 2, completed: false },
-        { id: 3, completed: false },
-      ],
-    };
+  computed: {
+    ...mapGetters("tasks", ["filteredTasks"]),
+  },
+  methods: {
+    ...mapActions("tasks", ["toggleTaskCompletion", "deleteTask", "addTask"]),
+
+    addNewTask() {
+      this.addTask();
+    },
   },
 };
 </script>
@@ -31,10 +33,18 @@ export default {
         <CardHeader />
         <div class="todo-list">
           <ul class="todo-tasks">
-            <TaskItem v-for="task in tasks" :key="task.id" :task="task" />
-
+            <li v-if="filteredTasks.length === 0">
+              <h2 class="no-tasks-message">No tasks yet</h2>
+            </li>
+            <TaskItem
+              v-for="task in filteredTasks"
+              :key="task.id"
+              :task="task"
+              @toggle-task="toggleTaskCompletion"
+              @delete-task="deleteTask"
+            />
             <li class="todo-task-add">
-              <h2>Add a new task</h2>
+              <button @click="addNewTask">Add a new task</button>
             </li>
           </ul>
         </div>

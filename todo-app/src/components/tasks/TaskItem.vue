@@ -13,16 +13,18 @@ export default {
   <li :class="$style.todoTask">
     <input
       type="checkbox"
+      :checked="task.completed"
+      @change="$emit('toggle-task', task.id)"
       :id="`task-${task.id}`"
       :class="$style.taskCheckBox"
     />
     <input
-        :for="`task-${task.id}`"
-        :class="$style.taskInput"
-        :placeholder="'Enter task'"
+      type="text"
+      v-model="task.title"
+      :class="$style.taskInput"
+      placeholder="Enter task"
     />
-    <button
-        :class="$style.taskDelete">
+    <button :class="$style.taskDelete" @click="$emit('delete-task', task.id)">
       ✖
     </button>
   </li>

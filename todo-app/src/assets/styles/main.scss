@@ -13,13 +13,13 @@ body {
 .wrapper {
   @include flex-center;
   position: relative;
-  height: 100vh;
+
 
   .bg-image {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 5rem;
+    padding: 4rem 4rem 0 0;
     z-index: 1;
 
     @include respond-to(sm) {
@@ -29,6 +29,8 @@ body {
 
   .todo__container {
     position: relative;
+    min-height: 100vh;
+    padding: 6rem 0;
     z-index: 2;
 
     .todo-app {
@@ -58,6 +60,11 @@ body {
             padding: 1rem;
           }
         }
+
+        .no-tasks-message {
+          text-align: center;
+          @include typography($font-size-primary, 600);
+        }
         
         .todo-task-add {
           background: #FFECD8;
@@ -72,17 +79,22 @@ body {
             margin-left: 1rem;
           }
 
-          h2 {
+          button {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: transparent;
+            background: transparent;
             color: $primary-color-elem;
             @include typography($font-size-primary, 400, $primary-color-elem);
-            margin: 0;
-            text-align: center;
           }
 
           &:hover {
             background: $primary-color-elem;
 
-            h2 {
+            button {
               color: white;
             }
           }
