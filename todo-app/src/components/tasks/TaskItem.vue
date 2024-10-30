@@ -6,6 +6,11 @@ export default {
       required: true,
     },
   },
+  methods: {
+    selectText(event) {
+      event.target.select();
+    }
+  }
 };
 </script>
 
@@ -23,6 +28,7 @@ export default {
       v-model="task.title"
       :class="$style.taskInput"
       placeholder="Enter task"
+      @focus="selectText"
     />
     <button :class="$style.taskDelete" @click="$emit('delete-task', task.id)">
       ✖

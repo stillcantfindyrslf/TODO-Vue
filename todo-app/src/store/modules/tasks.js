@@ -1,9 +1,9 @@
+function saveTasksToLocalStorage(tasks) {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
 const state = {
-  tasks: [
-    { id: 1, title: "Task 1", completed: false },
-    { id: 2, title: "Task 2", completed: true },
-    { id: 3, title: "Task 3", completed: false },
-  ],
+  tasks: JSON.parse(localStorage.getItem("tasks")) || [],
   filter: "all",
   taskCounter: 1,
 };
@@ -16,17 +16,21 @@ const mutations = {
     const task = state.tasks.find((t) => t.id === taskId);
     if (task) {
       task.completed = !task.completed;
+      saveTasksToLocalStorage(state.tasks);
     }
   },
   deleteTask(state, taskId) {
     state.tasks = state.tasks.filter((task) => task.id !== taskId);
+    saveTasksToLocalStorage(state.tasks);
   },
   addTask(state, taskTitle) {
-    state.tasks.push({
+    const newTask = {
       id: Date.now(),
       title: taskTitle,
       completed: false,
-    });
+    }
+    state.tasks.push(newTask);
+    saveTasksToLocalStorage(state.tasks);
   },
   incrementTaskCounter(state) {
     state.taskCounter += 1;
@@ -44,7 +48,7 @@ const actions = {
     commit("deleteTask", taskId);
   },
   addTask({ commit, state }) {
-    const taskTitle = `New Task ${state.taskCounter}`;
+    const taskTitle = `New Task ${state.taskCounter} (you can change task by click)`;
     commit("addTask", taskTitle);
     commit("incrementTaskCounter");
   },
