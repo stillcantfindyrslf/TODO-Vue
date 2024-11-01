@@ -3,11 +3,11 @@ export default {};
 </script>
 
 <template>
-  <div :class="$style.cardHeader">
+  <div class="cardHeader">
     <h1>to do list</h1>
   </div>
 </template>
 
-<style module lang="scss">
-@import "./CardHeader";
+<style lang="scss">
+@import "./CardHeader.scss";
 </style>

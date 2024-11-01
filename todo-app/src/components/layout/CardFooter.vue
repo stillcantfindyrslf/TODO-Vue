@@ -1,6 +1,6 @@
 <template>
-  <div :class="$style.todoFooter">
-    <div :class="$style.footerItems">
+  <div class="todoFooter">
+    <div class="footerItems">
       <h1>1/3 left</h1>
       <FilterView />
     </div>
@@ -17,6 +17,6 @@ export default {
 };
 </script>
 
-<style module lang="scss">
-@import "./CardFooter";
+<style lang="scss">
+@import "./CardFooter.scss";
 </style>

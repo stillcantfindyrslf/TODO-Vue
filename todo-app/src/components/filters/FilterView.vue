@@ -1,28 +1,19 @@
 <template>
-  <div :class="$style.filterHolder">
+  <div class="filterHolder">
     <button
-      :class="[
-        $style.filterButton,
-        { [$style.active]: activeFilter === 'all' },
-      ]"
+      :class="['filterButton', { active: activeFilter === 'all' }]"
       @click="setFilter('all')"
     >
       All
     </button>
     <button
-      :class="[
-        $style.filterButton,
-        { [$style.active]: activeFilter === 'active' },
-      ]"
+      :class="['filterButton', { active: activeFilter === 'active' }]"
       @click="setFilter('active')"
     >
       Active
     </button>
     <button
-      :class="[
-        $style.filterButton,
-        { [$style.active]: activeFilter === 'completed' },
-      ]"
+      :class="['filterButton', { active: activeFilter === 'completed' }]"
       @click="setFilter('completed')"
     >
       Completed
@@ -46,6 +37,6 @@ export default {
 };
 </script>
 
-<style module lang="scss">
-@import "./FilterView";
+<style lang="scss">
+@import "./FilterView.scss";
 </style>

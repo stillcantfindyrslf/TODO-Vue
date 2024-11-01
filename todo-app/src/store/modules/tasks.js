@@ -28,7 +28,7 @@ const mutations = {
       id: Date.now(),
       title: taskTitle,
       completed: false,
-    }
+    };
     state.tasks.push(newTask);
     saveTasksToLocalStorage(state.tasks);
   },

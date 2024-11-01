@@ -9,33 +9,31 @@ export default {
   methods: {
     selectText(event) {
       event.target.select();
-    }
-  }
+    },
+  },
 };
 </script>
 
 <template>
-  <li :class="$style.todoTask">
+  <li class="todoTask">
     <input
       type="checkbox"
       :checked="task.completed"
       @change="$emit('toggle-task', task.id)"
       :id="`task-${task.id}`"
-      :class="$style.taskCheckBox"
+      class="taskCheckBox"
     />
     <input
       type="text"
       v-model="task.title"
-      :class="$style.taskInput"
+      class="taskInput"
       placeholder="Enter task"
       @focus="selectText"
     />
-    <button :class="$style.taskDelete" @click="$emit('delete-task', task.id)">
-      ✖
-    </button>
+    <button class="taskDelete" @click="$emit('delete-task', task.id)">✖</button>
   </li>
 </template>
 
-<style module lang="scss">
-@import "./TaskItem";
+<style lang="scss">
+@import "./TaskItem.scss";
 </style>
