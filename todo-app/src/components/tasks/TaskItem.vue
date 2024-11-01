@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-  <li class="todoTask">
+  <li :class="['todoTask', { completed: task.completed }]">
     <input
       type="checkbox"
       :checked="task.completed"
